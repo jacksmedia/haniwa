@@ -2,7 +2,7 @@ const Attribution = () => {
     return(
     <>
     <div className='mt-5 mb-1 block-inline'>
-        <p>FF6 "A Soldier's Contingency": a romhack of "Final Fantasy VI" by Lightning Hunter.</p>
+        <p>SaGa2 "A Haniwa's Contingency": a romhack of "Final Fantasy Legend II" by Lightning Hunter.</p>
         <p>Not endorsed by Square Enix, and not affiliated with them in any way. 
         Site built by <a href="https://jacks.media" rel="noopener noreferrer" target="_blank" className="special">Jacks.Media</a>, 2025.</p>
     </div>

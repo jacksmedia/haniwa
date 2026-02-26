@@ -18,7 +18,7 @@ const HomePage: NextPage = () => {
               className='col-1 justify-content-center align-items-center image-sizing'
             />
           
-              FF6 "A Soldier's Contingency" Patcher
+              SaGa2 "A Haniwa's Contingency" Patcher
               
             <Image alt='a black tadpole person in a brown hooded robe with large yellow eyes, pixel art style' 
               src='https://ff6asc.vercel.app/img/favicon.png'

@@ -105,8 +105,8 @@ main div {
 
 .chosen-box {
   border-radius: 5px;
-  border: #2b8dca 3px groove;
-  background: radial-gradient(#333, #333,#2b8dca);
+  border: gold 3px groove;
+  background: radial-gradient(#333, #333,gold);
 }
 .unchosen-box {
   border: 2px black solid;
@@ -116,7 +116,7 @@ main div {
 .default-option {
   border-radius: 5px;
   /* border: #2b8dca 3px groove; */
-  background: radial-gradient(#333, #333,#39a);
+  background: radial-gradient(#333, #333,#d88);
 }
 
 .nicer-btn {
@@ -269,11 +269,11 @@ td:nth-child(even) {
 
 /* per page styling */
 .plus-patcher-bg {
-  background: radial-gradient(#9d1a3f, #710f2b, #000);
+  background: radial-gradient(#3866e7, rgb(43, 20, 195), #000);
 }
 .discord-bg {
-  background: linear-gradient(#112,#000, #000);
+  background: linear-gradient(rgb(43, 20, 195),#000, #000);
 }
 .guides-bg {
-  background: linear-gradient(#9d1a3f, #710f2b, #000);
+  background: linear-gradient(#3866e7, rgb(43, 20, 195), #000);
 }

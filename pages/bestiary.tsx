@@ -6,7 +6,7 @@ const Guide: NextPage = () => {
   return (
     <Layout>      
       <div className='guides-bg'>
-        <h4>FF6 "A Soldier's Contingency"</h4>
+        <h4>SaGa2 "A Haniwa's Contingency"</h4>
         <p>by Lightning Hunter</p>
         <MdD mdFile='guides/Bestiary.md' />
       </div>

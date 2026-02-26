@@ -1,0 +1,10 @@
+This patch reverts the following abilities back to the default names:
+
+PsiBlast -> P-Blast
+
+And to keep consistency, The following has also been renamed (although these abilities were not in the original game):
+
+PsiStaff -> P-Staff
+PsiShot -> P-Shot
+
+Apply this patch AFTER you have patched your FFL2 ROM with the hack!

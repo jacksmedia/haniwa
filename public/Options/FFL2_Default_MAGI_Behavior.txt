@@ -1,0 +1,10 @@
+-In this hack, most MAGI can be used in-battle. For example, the Fire MAGI can be equipped on a character to allow them to cast Fire magic in-battle, the Defense MAGI can be used in-battle as a shield,
+the Speed MAGI can be used to increase AGL, etc... This patch restores the original behavior so that most MAGI will only buff the characters and/or offer immunities.  
+-Unlike the original game, the elemental MAGI will actually resist the correct magic (this was a bug in the original game that has been fixed). 
+-Do keep in mind that if you apply this patch, the elemental MAGI will block the opposite element. Fire MAGI will block Ice magic, and ice MAGI will block Fire magic.
+This is not the case with the default hack.
+
+NOTE:  The MAGI document in the guide explains what each MAGI does. There is also a seprate section for the default MAGI behavior, so if you apply this patch (or want to know
+all the differences), please refer to that document.
+
+Apply this patch AFTER you have patched your FFL2 ROM with the hack!

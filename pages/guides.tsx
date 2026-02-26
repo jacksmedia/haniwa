@@ -21,28 +21,13 @@ const Guides: NextPage = () => {
 				</a>
 			</li>
 			<li>
-				<a href="/rage">
-					Rage List
-				</a>
-			</li>
-			<li>
 				<a href="/treasure">
 					Treasure Checklist
 				</a>
 			</li>
 			<li>
-				<a href="/morph">
-					Morph List
-				</a>
-			</li>
-			<li>
-				<a href="/blue-magic">
-					Blue Magic List
-				</a>
-			</li>
-			<li>
-				<a href="/colosseum">
-					Colosseum List
+				<a href="/meats">
+					Monster Evolution List
 				</a>
 			</li>
 			<li>
@@ -52,7 +37,7 @@ const Guides: NextPage = () => {
 			</li>
         </ul>
 		<h2>
-			<a target="_blank" href="FF6-ASC-Guides.zip" className='special-link'>
+			<a target="_blank" href="FFL2-AHC-Guides.zip" className='special-link'>
 				Download all Guides (.docx) in a .zip file
 			</a>
 		</h2>

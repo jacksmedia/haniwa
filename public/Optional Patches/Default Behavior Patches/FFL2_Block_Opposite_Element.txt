@@ -1,0 +1,8 @@
+In this hack, the Flame shield will block Fire magic, and the Ice Shield will block Ice magic.  However, in the original game, the elements blocked were the opposite
+(Flame shield blocked Ice magic, and the Ice Shield blocked Fire magic). This patch reverts to the default behavior of the shields blocking the opposite element.
+
+NOTE: This patch will NOT revert the MAGI behavior. The only way to have MAGI block the opposite element is to apply the "Default_MAGI_Behavior" patch, but this will
+also change a lot of other behavior related to MAGI as well. Unfortunately I had to do it this way due to limitations of the game, but I doubt many people will even
+notice (especially considering the MAGI immunities were broken entirely in the original game anyway).
+
+Apply this patch AFTER you have patched your FFL2 ROM with the hack!

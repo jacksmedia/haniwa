@@ -51,11 +51,8 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
   // if (patch.previewImage) {
   // Creates manifest path for fonts category
   const manifestPath = ( patch.category === 'difficulty' ||
-                  patch.category === 'battle-system' ||
-                  patch.category === 'fonts' ||
-                  patch.category === 'music' ||
-                  patch.category === 'other' ||
-                  patch.category === 'magic' )
+                  patch.category === 'graphics' ||
+                  patch.category === 'options' )
     ? `/manifests/${patch.name}.txt`  // Pattern for patch.id matches manifest title
     : ``;
   console.log(`Generated ${manifestPath} for manifest text file name.`)

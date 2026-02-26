@@ -1,0 +1,4 @@
+For this hack, I decided to keep the good ol' "Bananas" being illegal plot in Edo world. However, if someone wants the plotline changed into something
+a bit more serious, this optional patch will replace Bananas with Alcohol.
+
+Apply this patch AFTER you have patched your FFL2 ROM with the hack!

@@ -1,0 +1,6 @@
+This patch reverts the following immunities back to the default names:
+O-Death -> O-Para
+O-Mortal -> O-Pa/Po
+O-Element -> O-Damage
+
+Apply this patch AFTER you have patched your FFL2 ROM with the hack!

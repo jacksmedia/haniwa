@@ -7,7 +7,7 @@ const Discord: NextPage = () => {
     <Layout>      
       <div className='discord-bg'>
         <TitleScreen />
-        <h1 className="">Discuss FF6 ASC</h1>
+        <h1 className="">Discuss SaGa AHC</h1>
         <h2>#lightning-projects</h2>        
         <h2><a href="https://discord.gg/PGMASbSnD9" target='blank'>Join us in the FF4 Ultima Discord</a></h2>
       </div>

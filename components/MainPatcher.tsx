@@ -57,50 +57,11 @@ export default function MainPatcher() {
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
       },
       {
-        id: 'battle-system',
-        title: 'Active Mode Battle',
-        description: 'RoSoDude\'s Comprehensive ATB Enhancement',
-        allowMultiple: false,
-        zipFile: 'ATB-Comprehensive.zip',
-        defaultChoice: 'FF6 Vanilla ATB',
-        hasManifest: true,
-        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
-      },
-      {
-        id: 'fonts',
-        title: 'Alt Font',
-        description: 'Serif "Clean Font" with New Element Icons',
-        allowMultiple: false,
-        zipFile: 'Fonts.zip',
-        defaultChoice: '',
-        hasManifest: false
-      },
-      {
-        id: 'music',
-        title: 'Music Options',
-        description: 'Customize Certain Songs (Can Choose Multiple)',
-        allowMultiple: true,
-        zipFile: 'Music-Options.zip',
-        defaultChoice: '',
-        hasManifest: true,
-        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
-      },
-      {
-        id: 'other',
-        title: 'Other Patches',
+        id: 'ooptions',
+        title: 'Options',
         description: 'Mechanics & Items Options (Can Choose Multiple)',
         allowMultiple: true,
-        zipFile: 'Other-Patches.zip',
-        defaultChoice: '',
-        hasManifest: true,
-        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
-      },
-      {
-        id: 'magic',
-        title: 'More Magic',
-        description: 'Give Additional Heroes Magic (Use Sparingly to Avoid a Nerfed Game)',
-        allowMultiple: true,
-        zipFile: 'More-Magic.zip',
+        zipFile: 'Options.zip',
         defaultChoice: '',
         hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
@@ -116,7 +77,7 @@ export default function MainPatcher() {
   } = useOptionalPatches(optionalPatchesConfig);
 
   // name of the core romhack patches' zip
-  const corePatches = '/FF6ASC.zip'
+  const corePatches = '/AHC.zip'
 
   useEffect(() => {
     // Loads main patches
@@ -273,7 +234,7 @@ export default function MainPatcher() {
         </p>
         <DownloadRomButton
           onGenerateRom={generatePatchedRom} // Now uses generator function
-          filename={`FF6 ASC${selectedOptionalPatches.length > 0 ? ' Custom' : ''}.sfc`}
+          filename={`SaGa2 AHC${selectedOptionalPatches.length > 0 ? ' Custom' : ''}.gb`}
           disabled={!hasValidRom || isPatching}
         />
       </div>
