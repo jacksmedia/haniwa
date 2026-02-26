@@ -27,9 +27,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <Head>
-        <title>FFL2 AHC Patcher</title>
+        <title>SaGa2 AHC Patcher</title>
         <meta name="description" content="Get SaGa2 AHC" title="SaGa2 AHC Patcher" />
-        <link rel="icon" href="https://ff6asc.vercel.app/img/favicon.png" sizes="any" />
+        <link rel="icon" href="/img/favicon.ico" sizes="any" />
       </Head>
 
       <body>
