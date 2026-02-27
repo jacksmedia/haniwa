@@ -241,8 +241,8 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 20px;
-          overflow: hidden;
+          padding: 1px;
+          overflow: visible;
           grid-column: 1;
         }
 
@@ -252,14 +252,15 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
         }
 
         .modal-image {
-          width: 300%;
-          max-width: 90vw;
-          height: 300%;
-          max-height: 90vh;
+          width: 100%;
+          max-width: 55vw;
+          height: 100%;
+          max-height: 55vh;
           object-fit: contain;
           border-radius: 8px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
           background: black;
+          image-rendering: pixelated;
         }
 
         .modal-content.with-manifest .modal-image {
