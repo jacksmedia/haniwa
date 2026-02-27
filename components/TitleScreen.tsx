@@ -5,7 +5,7 @@ const TitleScreen = () => {
     <Image
         className=""
         src="/img/Title.png"
-        alt="FF6 ASC logo"
+        alt="SaGa2 AHC logo"
         width={256}
         height={224}
         priority

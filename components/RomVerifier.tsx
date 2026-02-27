@@ -42,11 +42,11 @@ const RomVerifier: React.FC<RomVerifierProps> = ({ onMatch }) => {
     setFileName(file.name);
     
     // Only process .sfc, .smc, or .fig files
-    const validExtensions = ['.sfc', '.smc'];
+    const validExtensions = ['.gb'];
     const fileExt = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
     
     if (!validExtensions.includes(fileExt)) {
-      alert('Please select a valid SNES ROM file (.sfc or .smc)');
+      alert('Please select a valid GameBoy ROM file (.gb)');
       return;
     }
     
@@ -73,7 +73,7 @@ const RomVerifier: React.FC<RomVerifierProps> = ({ onMatch }) => {
         type="file"
         ref={fileInputRef}
         onChange={handleFileInputChange}
-        accept=".sfc,.smc"
+        accept=".gb"
         className="hidden-input"
       />
       
@@ -102,7 +102,7 @@ const RomVerifier: React.FC<RomVerifierProps> = ({ onMatch }) => {
         </button>
         
         <p className="mt-2 text-xs">
-          Supported formats: .sfc, .smc
+          Supported format: .gb
         </p>
       </div>
     </div>

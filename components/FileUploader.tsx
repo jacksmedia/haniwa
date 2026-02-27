@@ -21,7 +21,7 @@ export default function FileUploader({ onROMUpload, onPatchUpload }: Props) {
     <div className="flex flex-col gap-4 mb-6">
       <label className="block">
         Upload ROM (.gb):
-        <input type="file" accept=".smc,.sfc" onChange={handleROMInput} />
+        <input type="file" accept=".gb" onChange={handleROMInput} />
       </label>
 
       <label className="block">

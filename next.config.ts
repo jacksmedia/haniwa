@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['ff6asc.vercel.app'],
+    domains: ['haniwa.vercel.app'],
   },
   /* additional scoped config options here */
 };

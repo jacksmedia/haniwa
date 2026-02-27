@@ -6,7 +6,7 @@ const Guides: NextPage = () => {
   return (
     <Layout>      
       <div className='guides-bg'>
-        <h1 className="">"FF6 A Soldier's Contingency" Guides</h1>
+        <h1 className="">SaGa2 "A Haniwa's Contingency" Guides</h1>
           <TitleScreen />
         <p>All docs by the author of this romhack, Lightning Hunter</p>
         <ul className='guides-list'>

@@ -38,10 +38,10 @@ export default function MainPatcher() {
       {
         id: 'graphics',
         title: 'Graphics',
-        description: 'Changes hero sprites & portraits',
-        allowMultiple: false,
+        description: 'Changes hero sprites',
+        allowMultiple: true,
         zipFile: 'Graphics.zip',
-        defaultChoice: 'ASC A Moogles',
+        defaultChoice: '',
         hasManifest: false,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
         // filePattern: /Style/i // can be used filter a multi-catergory archive
@@ -49,17 +49,17 @@ export default function MainPatcher() {
       {
         id: 'difficulty',
         title: 'Difficulty',
-        description: 'Mild and Insane vs Normal',
+        description: 'Average, Veteran, Insane',
         allowMultiple: false,
         zipFile: 'Difficulty.zip',
-        defaultChoice: 'ASC Difficulty NORMAL',
+        defaultChoice: 'SaGa2_A_Haniwas_Contingency_v1.02_Average',
         hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
       },
       {
         id: 'ooptions',
         title: 'Options',
-        description: 'Mechanics & Items Options (Can Choose Multiple)',
+        description: 'Mechanics & Options (Can Choose Multiple)',
         allowMultiple: true,
         zipFile: 'Options.zip',
         defaultChoice: '',
@@ -170,8 +170,8 @@ export default function MainPatcher() {
       console.log(`Found matching patch: ${matchingPatch.originalName}`);
 
       // Expands uploaded rom to correct size for romhack
-      // value in MB below: 6MB for FF6ASC ; 2MB for FF4UP
-      const finalSize = 6;
+      // value in MB below: 6MB for FF6ASC ; 2MB for FF4UP ; 0.5 for AHC
+      const finalSize = 0.5;
       const expandedRom = headerlessRom.length < finalSize * 1024 * 1024
         ? (() => {
             const newRom = new Uint8Array(finalSize * 1024 * 1024);
@@ -229,8 +229,8 @@ export default function MainPatcher() {
       <div className='d-flex justify-content-center align-items-center h-100'>
         <PlusTitle />
         <p className="text-center mb-2">
-          Upload your FFIII or FFVI(J) ROM file to create a copy of FF6 ASC.<br/>
-          Choose alternate graphics, difficulty, & a different font if you wish!
+          Upload your FFL2 ROM file to create a copy of SaGa2 AHC.<br/>
+          Choose alternate graphics, difficulty, & different options if you wish!
         </p>
         <DownloadRomButton
           onGenerateRom={generatePatchedRom} // Now uses generator function

@@ -239,7 +239,7 @@ td:nth-child(even) {
 /* index.tsx title styling */
 .app-title {
   line-height: 1;
-  color: #ffc;
+  color: rgb(233, 233, 111);
   font-size: 50px;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 1), 4px 4px 0px #bb8;
   font-weight: bold;
