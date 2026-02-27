@@ -51,8 +51,11 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
   // if (patch.previewImage) {
   // Creates manifest path for fonts category
   const manifestPath = ( patch.category === 'difficulty' ||
-                  patch.category === 'graphics' ||
-                  patch.category === 'options' )
+                         patch.category === 'options'   ||
+                         patch.category === 'human_F' ||
+                         patch.category === 'human_M' ||
+                         patch.category === 'mutant_F' ||
+                         patch.category === 'mutant_M')
     ? `/manifests/${patch.name}.txt`  // Pattern for patch.id matches manifest title
     : ``;
   console.log(`Generated ${manifestPath} for manifest text file name.`)
@@ -125,6 +128,32 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
   }, [categories]);
 
 
+  // sorting the difficulty patches (the first option)
+
+  const desiredOrder = ['A', 'V', 'I', 'L'] as const;
+
+  const orderMap: Record<string, number> = desiredOrder
+  .reduce((acc, letter, index) => {
+    acc[letter] = index;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const files = [
+    'SaGa2_A_Haniwas_Contingency_v1.02_Veteran',
+    // 'SaGa2_A_Haniwas_Contingency_v1.1_Lunatic',
+    'SaGa2_A_Haniwas_Contingency_v1.02_Average',
+    'SaGa2_A_Haniwas_Contingency_v1.02_Insane'
+  ];
+
+  files.sort((a, b) => {
+    const letterA = a[34];
+    const letterB = b[34];
+
+    return (orderMap[letterA] ?? Infinity) -
+          (orderMap[letterB] ?? Infinity);
+  });
+  //
+
   return (
     <div className="w-full max-w-2xl ">
 
@@ -143,6 +172,7 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
       {isExpanded && (
         <div className="">
           <div className="p-3 m-2">
+            
             {categories.map((category) => (
               <div key={category.id} className="border-b border-gray-700 last:border-b-0 pb-4 last:pb-0">
                 <h3 className="text-xl font-semibold text-white mb-2">
@@ -157,6 +187,11 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
 
                 <div className="d-flex flex-row flex-wrap justify-content-evenly">
                   
+                  {/* {if category == 'difficulty'(
+              
+                  )} */}
+
+
                   {category.patches.map((patch) => {
                     const isDefaultPatch = category.defaultChoice === patch.name;
                     const isSelected = isPatchSelected(patch.id);

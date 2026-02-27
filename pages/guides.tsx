@@ -11,37 +11,37 @@ const Guides: NextPage = () => {
         <p>All docs by the author of this romhack, Lightning Hunter</p>
         <ul className='guides-list'>
 			<li>
-				<a href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-2.pdf">
+				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-2.pdf">
 					Armor & Items
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-3.pdf">
+				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-3.pdf">
 					Weapons
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-4.pdf">
+				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-4.pdf">
 					Abilities
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-5.pdf">
+				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-5.pdf">
 					Mutant Ability Levels
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-6.pdf">
+				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-6.pdf">
 					Monster Level 11
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-7.pdf">
+				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-7.pdf">
 					MAGI
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-1.pdf">
+				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-1.pdf">
 					Full Game Walkthrough
 				</a>
 			</li>

@@ -71,7 +71,7 @@ export default function MainPatcher() {
         title: 'Human M',
         description: 'Change this hero\'s sprites',
         allowMultiple: true,
-        zipFile: 'human_FM.zip',
+        zipFile: 'human_M.zip',
         defaultChoice: '',
         hasManifest: false,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
