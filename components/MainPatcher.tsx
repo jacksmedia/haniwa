@@ -36,17 +36,6 @@ export default function MainPatcher() {
   const optionalPatchesConfig = useMemo(() => ({
     categories : [
       {
-        id: 'graphics',
-        title: 'Graphics',
-        description: 'Changes hero sprites',
-        allowMultiple: true,
-        zipFile: 'Graphics.zip',
-        defaultChoice: '',
-        hasManifest: false,
-        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
-        // filePattern: /Style/i // can be used filter a multi-catergory archive
-      },
-      {
         id: 'difficulty',
         title: 'Difficulty',
         description: 'Average, Veteran, Insane',
@@ -57,7 +46,7 @@ export default function MainPatcher() {
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
       },
       {
-        id: 'ooptions',
+        id: 'options',
         title: 'Options',
         description: 'Mechanics & Options (Can Choose Multiple)',
         allowMultiple: true,
@@ -65,6 +54,50 @@ export default function MainPatcher() {
         defaultChoice: '',
         hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+      },
+            {
+        id: 'human_F',
+        title: 'Human F',
+        description: 'Change this hero\'s sprites',
+        allowMultiple: true,
+        zipFile: 'human_F.zip',
+        defaultChoice: '',
+        hasManifest: false,
+        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+        // filePattern: /Style/i // can be used filter a multi-catergory archive
+      },
+            {
+        id: 'human_M',
+        title: 'Human M',
+        description: 'Change this hero\'s sprites',
+        allowMultiple: true,
+        zipFile: 'human_FM.zip',
+        defaultChoice: '',
+        hasManifest: false,
+        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+        // filePattern: /Style/i // can be used filter a multi-catergory archive
+      },
+            {
+        id: 'mutant_F',
+        title: 'Mutant F',
+        description: 'Change this hero\'s sprites',
+        allowMultiple: true,
+        zipFile: 'mutant_F.zip',
+        defaultChoice: '',
+        hasManifest: false,
+        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+        // filePattern: /Style/i // can be used filter a multi-catergory archive
+      },
+            {
+        id: 'mutant_M',
+        title: 'Mutant M',
+        description: 'Change this hero\'s sprites',
+        allowMultiple: true,
+        zipFile: 'mutant_M.zip',
+        defaultChoice: '',
+        hasManifest: false,
+        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+        // filePattern: /Style/i // can be used filter a multi-catergory archive
       }
     ]
   }), []);
