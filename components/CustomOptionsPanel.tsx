@@ -128,30 +128,12 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
   }, [categories]);
 
 
-  // sorting the difficulty patches (the first option)
-
-  const desiredOrder = ['A', 'V', 'I', 'L'] as const;
-
-  const orderMap: Record<string, number> = desiredOrder
-  .reduce((acc, letter, index) => {
-    acc[letter] = index;
-    return acc;
-  }, {} as Record<string, number>);
-
-  const files = [
-    'SaGa2_A_Haniwas_Contingency_v1.02_Veteran',
-    // 'SaGa2_A_Haniwas_Contingency_v1.1_Lunatic',
-    'SaGa2_A_Haniwas_Contingency_v1.02_Average',
-    'SaGa2_A_Haniwas_Contingency_v1.02_Insane'
-  ];
-
-  files.sort((a, b) => {
-    const letterA = a[34];
-    const letterB = b[34];
-
-    return (orderMap[letterA] ?? Infinity) -
-          (orderMap[letterB] ?? Infinity);
-  });
+  // sorting the difficulty patches (for first option)
+  const extractDifficultyLetter = (filename: string): string => {
+  const parts = filename.split('_');
+  const difficultyWord = parts[parts.length - 1]; // e.g. "Veteran"
+    return difficultyWord[0]; // "V"
+  };
   //
 
   return (
@@ -187,17 +169,32 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
 
                 <div className="d-flex flex-row flex-wrap justify-content-evenly">
                   
-                  {/* {if category == 'difficulty'(
-              
-                  )} */}
 
+                  {/* {category.patches.map((patch) => { */}
+                  {(category.id === 'difficulty'
+                    ? [...category.patches].sort((a, b) => {
+                        const desiredOrder = ['A', 'V', 'I', 'L'] as const;
 
-                  {category.patches.map((patch) => {
+                        const orderMap: Record<string, number> = {
+                          A: 0,
+                          V: 1,
+                          I: 2,
+                          L: 3
+                        };
+
+                        const letterA = extractDifficultyLetter(a.filename);
+                        const letterB = extractDifficultyLetter(b.filename);
+
+                        return (orderMap[letterA] ?? Infinity) -
+                              (orderMap[letterB] ?? Infinity);
+                      })
+                    : category.patches
+                    ).map((patch) => {
                     const isDefaultPatch = category.defaultChoice === patch.name;
                     const isSelected = isPatchSelected(patch.id);
                     // exquisitiely conditional CSS madness
                     const classes = [
-                      'p-2', 'd-flex', 'flex-column', 'option-box',
+                      'p-2', 'mb-3', 'd-flex', 'flex-column', 'option-box',
                       isSelected ? 'chosen-box' : 'unchosen-box',
                       isDefaultPatch ? 'default-option' : '',
                       isDisabled ? 'cursor-not-allowed opacity-50' : ''
