@@ -1,0 +1,4 @@
+This patch reverts the following immunities back to the default names:\n
+O-Death -> O-Para\n
+O-Mortal -> O-Pa/Po\n
+O-Element -> O-Damage

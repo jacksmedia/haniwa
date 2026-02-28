@@ -1,0 +1,6 @@
+This patch reverts the following abilities back to the default names:\n
+PsiBlast -> P-Blast\n
+\n
+And to keep consistency, The following has also been renamed (although these abilities were not in the original game):\n
+PsiStaff -> P-Staff\n
+PsiShot -> P-Shot

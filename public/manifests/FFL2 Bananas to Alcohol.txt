@@ -1,0 +1,2 @@
+For this hack, I decided to keep the good ol' "Bananas" being illegal plot in Edo world.\n
+However, if someone wants the plotline changed into something a bit more serious, this optional patch will replace Bananas with Alcohol.

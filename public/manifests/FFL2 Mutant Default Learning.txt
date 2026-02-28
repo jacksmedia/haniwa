@@ -1,0 +1,11 @@
+This patch reverts the Mutant ability learning back to the default instead of them having to eat meat.\n
+
+Pros of eating Meat to learn magic:\n
+-Mutants can keep that 4th ability indefinitely, as long as they don't eat meat. This is perhaps the most important reason to have this feature.\n
+-Your Mutant can learn abilities more frequently, since meat is dropped often. This is especially true endgame, when learning new abilities becomes sort of rare with Mutants...\n
+\n
+Cons of eating Meat to learn magic:\n
+-Your mutant can no longer learn abilities from non-meat dropping monsters. This also means no more chance of learning a high level ability from Dunatis - 
+although there are still other powerful monsters that drop advanced meat.\n
+-Your monster and mutant can't eat the same piece of meat, so obviously this means they will now be competing for that meat.\n
+This might be an issue with a party consisting of all monsters and mutants, although this would be a problem with multiple monsters in your party anyway...

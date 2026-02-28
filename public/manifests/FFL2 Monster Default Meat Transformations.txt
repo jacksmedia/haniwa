@@ -1,0 +1,4 @@
+By default, this hack lets monsters upgrade much easier/quicker than before. This is because they will rarely ever downgrade, unlike in the original game. For example,
+you won't be getting a fly beyond world 1 anymore by eating level 2+ meat.\n
+This patch will revert that behavior back to the default behavior, which means your monsters can very easily downgrade to weaker variants.\n
+Basically, if you want a greater challenge when it comes to eating meat and upgrading your monster(s), apply this patch.

@@ -1,0 +1,6 @@
+By default, it is nearly impossible to increase the strength stat of Mutants. This was modified by Alex Jackson years ago in the FFL2 GameFAQ board. I have
+made this modifiaction an optional patch. If you apply this patch, Mutants will be able to gain STR just as well as Humans.\n
+\n
+Note: This was reported as a "bug" over in the FFL2 GameFAQ board years ago, but I personally feel it is intentional that Mutants do not gain strength as well as
+other stats. I think this feeling is enforced since the Saga 2 remake for Nintendo DS also made it near-impossible to get strength gains on Mutants. However,
+intentional or not, I felt it was a good idea to include this optional patch.

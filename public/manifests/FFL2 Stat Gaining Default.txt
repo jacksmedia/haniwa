@@ -1,0 +1,3 @@
+A new feature included with this hack is characters being able to gain more than one stat per battle. For example, a single human character could gain
+a Mana, Agility, and Strength boost all in the same battle (although only one point max for each).\n
+If anyone out there prefers the default behavior, this patch will revert it back to the standard - which is a single stat boost per character, per battle.
