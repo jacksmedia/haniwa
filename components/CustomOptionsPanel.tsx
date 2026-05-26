@@ -107,6 +107,22 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
   const isPatchSelected = (patchId: string) => selectedPatches.includes(patchId);
   const getSelectedCount = () => selectedPatches.length;
 
+  // Get default selections that should always remain selected
+  const getDefaultSelections = (): string[] => {
+    const defaults: string[] = [];
+    categories.forEach(category => {
+      if (category.defaultChoice) {
+        const defaultPatch = category.patches.find(
+          p => p.filename.replace(/\.ips$/i, '') === category.defaultChoice
+        );
+        if (defaultPatch) {
+          defaults.push(defaultPatch.id);
+        }
+      }
+    });
+    return defaults;
+  };
+
   if (categories.length === 0) {
     return null;
   }
@@ -140,9 +156,9 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
     <div className="w-full max-w-2xl ">
       {/* conditional plural for title */}
         <div className="flex items-center justify-between p-2">
-          <h3>{getSelectedCount()} Option 
+          <h3>{getSelectedCount()} Patch 
             {getSelectedCount() > 1 && (
-              <span>s</span>
+              <span>es</span>
             )}
           &nbsp;selected</h3>
         </div>
@@ -260,15 +276,15 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
             ))}
           </div>
 
-          {/* Clear All Button */}
-          {getSelectedCount() > 0 && (
+          {/* Reset to Defaults Button - only show if non-default options are selected */}
+          {getSelectedCount() > getDefaultSelections().length && (
             <div className="p-4 border-t border-gray-700">
               <button
-                onClick={() => onSelectionChange([])}
+                onClick={() => onSelectionChange(getDefaultSelections())}
                 disabled={isDisabled}
                 className="mx-auto px-2 py-2 text-white nicer-btn"
               >
-                Clear All Selections
+                Reset to Defaults
               </button>
             </div>
           )}
