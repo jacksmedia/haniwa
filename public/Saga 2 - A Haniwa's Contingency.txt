@@ -1,0 +1,444 @@
+Title:  Saga 2 - A Haniwa's Contingency
+Platform: SNES
+Release date: 5/xx/2026
+Author: Lightning Hunter
+Coder: tehtmi
+Version:  Version 2.0
+Production time:  Several years
+
+
+Installation:
+_________________________________________________
+
+-First You will need a Final Fantasy Legend II (USA) ROM with the following CRC32: 58314182
+And a ROM SHA-1 of:  6AB6890E8F688BCD87E97886A1748A4D9D341909
+
+NOTE: the easiest utility to check the CRC32 is "Rom Hasher":
+https://www.romhacking.net/utilities/1002/
+
+-Once you have verified that you have the correct ROM, you need a patcher utility to apply the .ips patch over your ROM.  I recommend "Flips":
+https://www.romhacking.net/utilities/1040/
+
+-Now go ahead and choose one of the four difficulty levels:  Average, Veteran, Insane, or Lunatic.  Here is a brief description of each:
+
+Average: Choose this difficulty if you have never played FFL2 before, or if it's been so long that you aren't sure of your skill. This difficulty level is probably
+a tad bit easier than the original FFL2. In general, there are weaker monsters and beefed up weapons and armor.  Monsters will also use their deadliest attacks less often,
+and bosses are much easier.
+
+Veteran: Choose this skill if you are somewhat familiar with FFL2, or if you are following the guide for tips. In some ways this difficulty is harder than the original
+FFL2, but is also more fair since much of the game has been rebalanced for this hack in general. This is especially the case with all the new features that have been implemented.
+
+Insane: Only pick this skill if you are an expert with FFL2, or if you have beat the hack and feel you are ready to take on a larger challenge.  
+Most of the regular encounters here are similar to Veteran skill, but the mini-bosses and bosses are much harder. You will need to have some strategy to win.
+If you are thinking of doing an oddball party combination like 4 monsters, consider choosing Veteran instead (although it might be beatable, just very hard).
+
+Lunatic: This difficulty will likely frustrate some players. All monsters are much beefier. They hit harder and use deadly attacks more often.
+You have to be at the top of your game to win, and grinding might be necessary (either that, or very good strategy and/or luck). Expect to purchase all the best equipment, heal more often, and
+use those shields to protect your party if you want to win. I would not suggest an oddball party combination like 4 monsters unless you wish to prove it can be done (it's possible it can't).
+
+-Once you have picked your difficulty, apply it over your FFL2 ROM. To verify your ROM has been patched correctly, check it with the ROM Hasher utility.
+The final patched rom should look like this:
+
+Average Difficulty:                                                                         
+Platform           Game Boy                                                     
+External Header    No                                      
+File Size          524288 (80000)                                                  
+ROM CRC32          15067598                                
+ROM SHA-1          E3F4A84111994F417ED92C0943814C325EA13B75
+ROM checksum       A30C                                    
+Checksum valid     No                                                                       
+                           
+Veteran Difficulty:                                                                   
+Platform           Game Boy                                                     
+External Header    No                                      
+File Size          524288 (80000)                                                 
+ROM CRC32          2E135D7C                                
+ROM SHA-1          12552D74E5459C51A50D7BA89DA5FF47ABB8AD53
+ROM checksum       B0DE                                    
+Checksum valid     No                                                                         
+                                  
+Insane Difficulty:                                                                   
+Platform           Game Boy                                                     
+External Header    No                                      
+File Size          524288 (80000)                                                  
+ROM CRC32          486E49C8                                
+ROM SHA-1          6E57BD881D900155E16FCB17AEBC12639304130A
+ROM checksum       EDBA                                    
+Checksum valid     Yes                                     
+                                
+Lunatic Difficulty:                                                                   
+Platform           Game Boy                                                     
+External Header    No                                      
+File Size          524288 (80000)                                                   
+ROM CRC32          28104A56                                
+ROM SHA-1          58F9AE864CFE841644FC2D91E714536C113113EF
+ROM checksum       AD41                                    
+Checksum valid     No                                                                                                      
+                                                                
+                                                                                                                                                                        
+-Finally, you may choose any optional patches you wish to apply, if any. These are contained in the "Optional Patches" folder. There is a document for each optional patch explaining what it does.      
+  
+NOTE: It is possible to change the difficulty level at any time during the playthrough of a game. However, you need to apply the difficulty you want over a fresh ROM file using
+the same process above (and also apply the optional patches again).  I also recommend unequipping all your characters BEFORE changing the difficulty level in your savegame, then
+re-equip them after you have switched the difficulty level. Otherwise, there may be odd bugs like a character having high defense with nothing equipped.
+The exception is Robots, which you may keep equipped while changing the difficulty level (plus you don't want to cut their inventory amount in half). Monsters obviously are also fine.
+                                                                      
+Real Hardware Note: This hack has been tested on an SD2SNES using the Super Gameboy2 firmware (version sgb07). Therefor, you could say it has
+been tested on real hardware - at least on an SNES. It likely works on an actual Gameboy as well (with a flash cart), but someone else would have to test this and report back to me.
+
+
+Description:
+_________________________________________________
+
+A hack for Saga2/Final Fantasy Legend 2 that extends the game with new locations, bosses, cut scenes, monsters, abilities, items, a new post-game quest, and more.  Also included are major bug fixes.
+
+List of features:
+_________________________________________________
+
+-Most bugs fixed
+-Much of the dialog re-written (with a few ideas borrowed from the Saga 2 DS translation).
+-One new world replacing the tiny pointless world after the Guardian's Base
+-Expansion of the Central Temple (the final dungeon) to be about twice the size
+-100+ new monster sprites in addition to the original sprites with a lot of original art (and some remasters from Saga1/Saga3)
+-Three difficulty modes: Average, Veteran, and Insane.
+-Full guide included that covers advanced tips and tricks
+-New base monster character to pick from and a new robot variant: the cyborg.
+-Remastered FFL2/Saga2 monster graphics
+-New cut scenes and bosses
+-A few new side-villains
+-The option to continue playing at the end of the game with bonus post-game content.
+-Dozens of new weapons, items, and abilities.
+-Mutants can now eat meat to learn new magic/abilities.
+-Many new mutant abilities, and a revamped ability list so Mutants progress better.
+-Brand new Monsters to transform into, and many modifications to previous monsters to make them more useful.
+-Monster transformations now a bit easier; they don't downgrade as often.
+-Some odd monsters and abilities renamed (like P-Toad, P-Blast, D-Flesh, etc.)
+-The ability to stop the shaking at the end of the game by talking to an NPC, as well as a jukebox.
+-Brand new level 11 monsters, complete with New Sprites, available to fight in the newly expanded Central Temple
+-Optional patches to revert many of the changes mentioned here if they are not desired + other features
+-Countless other changes/features that can't all be listed here...
+
+
+Bug fixes and patches:
+_________________________________________________
+
+The following bugs and enhancements by tehtmi:
+-Gold drop fix (in the original game, monsters to the right of a monster dropping meat would not give you GP).
+-Displaying higher than 99 in the stats screen
+-Mutants eat meat to learn/change abilities/magic
+-Robot Karate Agility bug fix
+-MAGI animation bug fix (Masmune displaying the wrong sword animation, for example).
+-Capping monster HP at 999 for transformations (so the monster you fight can have more than that).
+-individual monster immunity to Chainsaw and Critical (so a Kusanagi can't one-shot Arsenal, for example).
+
+The following bugs were fixed by Alex Jackson (over at the Game FAQ board in the thread "bug fixes": 
+-Confusion bugfix
+-Elemental Magi fix
+-HP Stat Gain fix 
+-"Fake Reporting" Petrify/Stun bugfix
+-Poison death message fix (this is the bug that could make Arsenal appear randomly).
+
+The following patches were provided by tehtmi:
+-Expanded Monster graphics
+-Expanded Script/Story
+-Automatic disabling of unequip for monsters regardless of what abilities they have
+
+Changelog:
+_________________________________________________
+Version 2.0
+-All character sprites and NPCs have been completely redrawn or enhanced. Most are from scratch, with some enhanced FFL3/default sprites.
+-The Nasty Dungeon has been rebuilt entirely with new themes and surprises (it's no longer the "nasty dungeon").
+-Expanded inventory from 17 slots to 23 (the most possible with Gameboy's limited memory).
+-More meaningful dialog at the starting village that plays into the post-game.
+-Brand new item drop system that allows for meat dropping monsters to also drop items in the same battle. As such, most monster drops have also been revised.
+-With the new item drop system, monsters can drop items not in their inventory, such as stat boost potions and other rare items.
+-The maximum gold you can carry has been increased to 7 digits (9,999,999), since it was possible to exceed 1 million gold before reaching the post-game.
+-Better RNG Randomization.  Now every time you load a game or reset a game, you should encounter different monsters (also taking a different number of steps),
+and also have different results/outcomes with the battles.  This also applies to stat gains, meat, and drops.
+-Tweaked some of the dialog throughout the game.
+-You can now run from ANY random encounter in the game, as long as your party has a "successful" run. Previously, monsters
+that doubled as mini-bosses and random encounters could not be run from at all.  Now you are only blocked with the event/mini-boss version.
+-Added a brand new "Lunatic" skill, which mostly increases the difficulty of the bosses and a few randon encounters, and also adds level 10 monsters earlier to the final dungeon. 
+NOTE: this difficulty may not be fair with certain party combinations. I suggest you use this with party combinations you are confident with.
+-Changed the mostly busted shield block code of vanilla. The block rate is now fixed and more accurately reflects the percentages listed in the guide.  In the original game, the 
+block rate was based on the shield AS WELL as your characters agility as an added bonus.  This allowed even the weakest Bronze shield to block just about everything halfway
+through the game, assuming you trained the agility of the character using it.  The agility bonus of blocking weapons/shields has been removed completely.
+-Replaced the Samurai encounter after the Guardian world with a brand new boss (during the cutscene with Dad & Lynn).
+-Removed the "Hatamotos" and replaced them with "Samurai". This also applies to the storyline in Edo.
+-Added a new NPC to the post-game as well as a shop to purchase items in the central temple. This NPC only sells you items when the post-game begins.
+-The final teleport/warp point now takes you to the center of the temple, where the new post-game content mostly takes place.
+-The damage of Flare has been increased for Mutants only (when they learn it as a skill/ability). This should make it more worth keeping with only 5 uses.
+-Fixed a bug in average difficulty in which the Fungus monster would deal 400+ damage. This was due to a typo with an extra digit in its strength level...
+-Fixed a typo in which Byakko said "inoccent" instead of "innocent".
+-Brought back the ability to change into a much better monster in world 2 by keeping the starting "Larvae" monster and eating the following meat:
+Were Rat = Medusa
+Eagle = Obake
+Snake = Sprite
+-Fairy and Nymph now have Lightning and Heal. With all the other monsters changes to the hack, the sprite family was sort of lacking.
+-The damage dealt by the "Beam" ability has been increased by 1 point.
+-Tweaked the monster transformation table further so you can't become too advanced too early.
+-Changed the number of uses with Nukebomb to "3", so it is a bit more useful, and also can be recharged by a Robot with 1 use.
+-Renamed "Broad" sword to "Great" sword.
+-SPOILERS: Added the following new weapons/items: Psi Whip, Titania Whip, Nodachi, Sai, Slow Potion, SeerSuit
+-Removed the following weapons/abilities:  Coral Sword, Storm Shield, Selfix (Cyborgs have Recover now instead, which does the same thing).
+
+Version 1.02
+-The previously optional patch "MAGI Teaches Abilities" has undergone some major changes, and is now applied by default. Just about every MAGI will grant
+some sort of in-battle ability when equipped now!  An optional patch exists to revert the MAGI behavior back to the default.
+-A MAGI document has been added to the guide that shows what each MAGI does (there is also a separate table if you use the default MAGI behavior patch).
+-Tweaked the monster transformations so you can no longer become a level 5 monster in the first world
+-The FlameTw now trains Mana, which makes it more unique. Otherwise, it was the same cost as the Bazooka, but with inferior damage.
+-Reduced the AGL of the Fly for Veteran and Insane difficulty so it isn't so deadly with its "Nails" attack.
+-The TrueEye MAGI can now be used to boost the AGL of anyone in the party (rather than just the person using it). This was done mostly because the Speed MAGI
+now grants an AGL boost to the character using it in-battle (it couldn't do this previously). More info is available in the MAGI guide.
+-Isis can now use her TrueEye MAGI in-battle to boost the agility of any charater.
+-Elemental shields now block the same element instead of the opposite (Flame shields block Fire, and Ice shields block Ice). An optional patch now exists
+to revert this behavior back to the default (block opposite element).
+
+Version 1.01
+-Fixed the bad checksum of the ROM, which stopped it from working on some real hardware as well as a few emulators that emulated real hardware.
+-Fixed some errors in the guide
+-Added some info about the Mutant and defense stat gaining in the guide
+
+
+Tools Used by Author
+_________________________________________________
+Saga2Edit by tehtmi - This hack would not exist without it!
+YY-CHR by YY - Allowed me to edit and add more graphics to the game
+HxD by Maël Hörz - for hex editing
+Floating IPS by Alcaro, to compile my hack
+
+
+Extra special thanks
+_________________________________________________
+
+Tehtmi, for Saga2Edit, and for helping me with dozens of issues including expanding the ROM in order to add more monster graphics. 
+Without his help, this hack would NOT exist!
+
+Also thanks to:
+
+All of those over at the FFIV Ultima Discord server for their valuable input, and for hosting my discord channel.
+
+Thanks to the Beta Testers:
+
+Lily, Nobunaga, ScarabEnigma, xJ4cks, Break
+
+
+Individual Monster Sprite Information (Credits)
+_________________________________________________
+
+The following is a list of all the new sprites in the game, along with where they came from. This is so people know which sprites I did myself, and which were conversions/remasters from other Saga games.
+
+-Character GFX (with the new version 2.0 sprite pack):
+
+Human Male (New Sprite)
+Human Female (New Sprite)
+Male Mutant (Remake of default sprite)
+Female Mutant (New Sprite)
+Robot (New Sprite)
+Cyborg (FFL3 Remake)
+Mushroom (Touched up FFL3 sprite)
+Flower (New Sprite)
+Tree (Remake of Default sprite)
+Pebble (Remake of Default sprite)
+Sword (Remake of Default sprite)
+Woodman (New Sprite)
+Slime (Remake of Default sprite)
+Baby Dragon/Final Worm (New Sprite)
+Eye (Touched up default sprite)
+Spider (New Sprite)
+Beetle (New Sprite)
+Butterfly (Touched up default sprite)
+Fish (Touched up FFL3 Sprite)
+Hermit Crab (Default sprite touched up)
+Squid (Touched up default sprite)
+Frog (New Sprite)
+Snake (New Sprite)
+Turtle (Remake of Default sprite)
+Lizard (New Sprite)
+T-Rex (New Sprite)
+Dragon (New Sprite)
+Wyrm (New Sprite)
+Bird (New Sprite)
+Raven (Remake of Default sprite)
+Cat (Touched up default sprite)
+Horse (New Sprite)
+Chimera (New Sprite)
+Fly (New Sprite)
+Wolf (Remake of Default sprite)
+Medusa (Remake of FFL3 Sprite)
+Goblin (New Sprite)
+Fiend (New Sprite)
+Fairy (Touched up default sprite)
+Skeleton (Remake of Default sprite)
+Zombie (Touched up default sprite)
+Ghost (default sprite)
+Centaur (Remake of FFL3 Sprite)
+Mask Monster (Remake of FFL3 Sprite)
+Tian Long (New Sprite)
+Titania (Remake of FFL3 Sprite)
+Kraken (Remake of FFL3 Sprite)
+Sahagin (FFL3 Sprite)
+Triceras (Remake of Default sprite)
+Scorpion (Touched up FFL3 Sprite)
+Dino (Remake of FFL3 Sprite)
+Lesser Eye (FFL3 Sprite)
+Larvae (Remake of FFL1 sprite)
+Mech Crab (New Sprite, borrowed a bit from Hermit Crab)
+MindFlayer (New Sprite)
+Haniwa (New Sprite)
+Dad/Captain (Remake of Default sprite)
+Mr. S (Touched up default sprite)
+Ki (Remake of Default sprite)
+Mask (New Sprite)
+Lynn (Remake of FFL3 Sprite)
+Hana (Touched up default sprite)
+Taro (Touched up default sprite)
+Isis (Touched up default sprite)
+
+A majority of the NPC sprites (as of version 2.0) are remastered default sprites and/or FFL3 sprites.  The exception is the following, which are from scratch:
+Oceanus, Knight, Wizard, Goryo, Niles, Ninja, Beetle, Commando (borrowed legs from default male)
+
+
+-Regular Monsters (in-battle graphics):
+
+Baby Wyrm (New Sprite)
+Small Fiend (New Sprite)
+Small Frog (New Sprite)
+Small Slime (New Sprite)
+Scorpion (FFL3 Remaster)
+Small Oak (New Sprite)
+Lesser Eye (FFL3 Remaster)
+Snake (FFL1 Remaster)
+Toadstool (FFL3 Remaster)
+Mech Bug (FFL3 Remaster)
+Mech Crab (New Sprite, borrowed bits of default Hermit sprite)
+O-Bake (FFL3 Remaster)
+Ninja (New Sprite)
+Goblin (FFL1 Remaster)
+Chimera  (FFL1 Remaster)
+Triceras  (FFL1 Remaster)
+Young D (FFL1 Remaster)
+Dragon (FFL1 Remaster)
+Lesser Wyrm (FFL3 Remake)
+Lesser Turtle (FFL3 Remaster)
+Flying Eagle (FFL1 Remaster)
+Larvae (Complete Remake of FFL3 Scorpion)
+Squid (FFL3 Remaster)
+Robo Mouse (FFL3 Remaster)
+Orc (FFL3 Remake)
+Commando (New Sprite)
+Stranger (FFL3 Remake)
+Killer (Remake of default Gang sprite)
+Lesser Worm (New Sprite)
+Lamia (FFL1 Remake)
+Skeleton (FFL1 Remaster)
+Lesser Robot (New Sprite)
+Lesser Samurai (FFL1 Remaster)
+Lesser Knight (FFL1 Remaster)
+Lesser Jaguar (FFL1 Remaster)
+Lesser Werewolf (FFL1 Remaster) 
+Lesser Crab (FFL1 Remaster) 
+Lesser Fly (FFL1 Remaster)
+Malboro (New Sprite)
+Lesser Ammonite (FFL1 Remaster)
+Lesser Zombie (FFL1 Remaster)
+Lesser Gang (FFL1 Remaster)
+Lesser Flower (FFL1 Remaster)
+Lesser Lizard (FFL1 Remaster)
+Lesser Sword (New Sprite)
+Fairy (New Sprite)
+Rock (New Sprite)
+EvilMask (FFL3 Remaster)
+Silver/Lesser Horse (New Sprite)
+Raven (FFL3 Remaster)
+Medusa/Euryale (FFL1 Remake)
+T-Rex (FF1 GBA Conversion & Remaster)
+CyberPod (New Sprite)
+Medusa/Naga (FFL3 Remake)
+Terrorist (FFL3 Remake)
+Tank (FFL3 Remake)
+Sentry (FFL3 Remaster)
+Volcano Monster (New Sprite)
+Warrior (Remake of Skeleton)
+Gazer (FFL3 Remake)
+Hofud (New Sprite)
+Pirate (New Sprite)
+Oceanus (New Sprite, parts borrowed from Dolphin)
+
+-Final Level 11 Monsters:
+
+Zilant (New Sprite)
+Rhyos (New Sprite)
+TianLong (New Sprite)
+Earth (New Sprite)
+Slime God (New Sprite)
+T-Rexaur (New Sprite, inspired by FF1 T-Rex)
+Chiron (New Sprite, borrowed pose from default Horse)
+Athtalot (FFL1 Remake)
+Stheno (New Sprite, small parts based on FFL1 Medusa)
+Susanowo (FFL3 Remake)
+Fly Lord (Default Fly Remake)
+Dark Rose (New sprite)
+Scarab (New Sprite)
+Giga Worm (New Sprite, borrowed some FFL3 bits)
+King Toad (Default Frog Remake)
+Black Belt (New Sprite)
+Deathcap (New Sprite)
+Dagon (Default Hermit Remake)
+Ghost (New Sprite)
+Cerberus (FFL3 Remake)
+Beholder (New Sprite, borrowed small bits from the default Big Eye sprite)
+Gen-Bu (New Sprite, borrowed parts from default Tortoise)
+Lamp Fish (FFL3 Remake)
+Treant (Remake of default Tree sprite)
+Kraken (Remake of FFL3 sprite)
+Basilisk (FFL3 Remake)
+Hydra (FFL3 Remake)
+Gargoyle (FFL3 Remake)
+Wizard (FFL3 Remake)
+Titania (FFL3 Remake)
+Mazin (FFL3 Remake)
+Intercept Larger (Remake of default Intercept)
+Musashi (New Sprite, borrowed small parts of default Musashi sprite)
+Arachne (New Sprite, borrowed parts of default Tarantula)
+Paladin (Complete Remake of default Knight sprite)
+Lich (New Sprite)
+Madam (FFL3 Remake)
+Reptilian (FFL3 Remake)
+Revenent (FFL3 Remake)
+Fenrir (FFL1 Remake)
+
+-New Bosses (SPOILERS ahead):
+
+Yojimbo (New Sprite)
+Zirok (New Sprite)
+Echigoya (New Sprite, borrowed parts from FFL3 assassin)
+Byakko (New Sprite)
+Invader (FFL3 Remaster)
+Jorgandr (FFL3 Remaster)
+Guha (FFL3 Remaster)
+Deity (FFL3 Remaster)
+Goryo (New Sprite)
+War Mk.2 (New Sprite, which is a remake from my FF6 hack, A Soldiers Contingency, which was a remake of the PS/Mobile Final Fantasy Warmech)
+King Haniwa (New Sprite, borrowed parts of the default Haniwa graphic of course)
+DarkLord (New Sprite)
+Neptune (New Sprite, inspired by Piscodemon from other FF games)
+
+Known Bugs/FAQ
+_________________________________________________
+-With the new monster item drop code, some monsters will randomly drop a Hammer even though they aren't supposed to.  This is completely harmless, however.
+
+
+Permissions
+_________________________________________________
+
+I don't mind if someone wants to use this hack as a base for other hacks or to borrow content, but I would prefer they message me using one of the methods below - especially
+since I would like to see the project in question!
+
+
+Contact
+_________________________________________________
+
+The best way to contact me in regards to this hack is over on Discord, in the "Final Fantasy IV - Ultima" server. My username is Lightning #8303.
+A less reliable method is to e-mail me: LightningHunter at hotmail dotcom (spelled out to hopefully avoid spam bots).

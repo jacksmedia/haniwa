@@ -1,0 +1,7 @@
+In the original FFL2/Saga2, the Random number generator would not kick in until after you start a game.  This meant that if you did a hard restart of the game,
+the first battle you fought would always be the same.  The outcome would also be the same along with the gold dropped, damage delt, and even the stat/meat/item
+gained at the end of the battle. Thanks to code by tehtmi, this is fixed in the hack. Random number generation that is randomized before loading a game with the clock 
+in the menu along with loading a savegame.  However, this also means you can no longer abuse the RnG of the original game to gain lots of stats with a character after a
+battle by performing the same actions.  If you wish to have the original vanilla behavior back, apply this patch.
+
+SUMMARY: Just to be clear, this patch will revert the new RnG behavior to vanilla behavior, which is not really random at all when you do a hard reset. 

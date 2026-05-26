@@ -138,16 +138,13 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
 
   return (
     <div className="w-full max-w-2xl ">
-
+      {/* conditional plural for title */}
         <div className="flex items-center justify-between p-2">
-          <h3>Number of Custom Options</h3>
-          <div className="flex items-center space-x-2">
-            {getSelectedCount() > 0 && (
-              <span className="px-2 py-1 text-sm">
-                {getSelectedCount()} selected
-              </span>
+          <h3>{getSelectedCount()} Option 
+            {getSelectedCount() > 1 && (
+              <span>s</span>
             )}
-          </div>
+          &nbsp;selected</h3>
         </div>
  
       {/* Options Panel */}
@@ -169,19 +166,15 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
 
                 <div className="d-flex flex-row flex-wrap justify-content-evenly">
                   
-
-                  {/* {category.patches.map((patch) => { */}
                   {(category.id === 'difficulty'
                     ? [...category.patches].sort((a, b) => {
                         const desiredOrder = ['A', 'V', 'I', 'L'] as const;
-
                         const orderMap: Record<string, number> = {
                           A: 0,
                           V: 1,
                           I: 2,
                           L: 3
                         };
-
                         const letterA = extractDifficultyLetter(a.filename);
                         const letterB = extractDifficultyLetter(b.filename);
 
@@ -190,15 +183,20 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
                       })
                     : category.patches
                     ).map((patch) => {
-                    const isDefaultPatch = category.defaultChoice === patch.name;
-                    const isSelected = isPatchSelected(patch.id);
-                    // exquisitiely conditional CSS madness
-                    const classes = [
-                      'p-2', 'mb-3', 'd-flex', 'flex-column', 'option-box',
-                      isSelected ? 'chosen-box' : 'unchosen-box',
-                      isDefaultPatch ? 'default-option' : '',
-                      isDisabled ? 'cursor-not-allowed opacity-50' : ''
-                    ].filter(Boolean).join(' ');
+                      // Compare against filename (minus .ips) since name gets transformed with spaces/caps
+                      const isDefaultPatch = category.defaultChoice === patch.filename.replace(/\.ips$/i, '');
+                      const isSelected = isPatchSelected(patch.id);
+                      // Check if any patch in this category is currently selected
+                      const categoryHasSelection = category.patches.some(p => isPatchSelected(p.id));
+                      // Show chosen-box styling if selected, OR if it's the default and nothing in category is selected
+                      const showAsChosen = isSelected || (isDefaultPatch && !categoryHasSelection);
+                      // exquisitiely conditional CSS madness
+                      const classes = [
+                        'p-2', 'mb-3', 'd-flex', 'flex-column', 'option-box',
+                        showAsChosen ? 'chosen-box' : 'unchosen-box',
+                        isDefaultPatch ? 'default-option' : '',
+                        isDisabled ? 'cursor-not-allowed opacity-50' : ''
+                      ].filter(Boolean).join(' ');
 
                     return (
                       <label 

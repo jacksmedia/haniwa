@@ -38,10 +38,10 @@ export default function MainPatcher() {
       {
         id: 'difficulty',
         title: 'Difficulty',
-        description: 'Average < Veteran < Insane',
+        description: 'Average < Veteran < Insane < Lunatic',
         allowMultiple: false,
         zipFile: 'Difficulty.zip',
-        defaultChoice: 'SaGa2_A_Haniwas_Contingency_v1.02_Average',
+        defaultChoice: 'Saga2_A_Haniwas_Contingency_v2.0_beta2_Average',
         hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
       },
@@ -108,6 +108,27 @@ export default function MainPatcher() {
     error: optionalError,
     getSelectedPatches
   } = useOptionalPatches(optionalPatchesConfig);
+
+  // Initialize selections with default choices when categories load
+  useEffect(() => {
+    if (optionalCategories.length > 0 && selectedOptionalPatches.length === 0) {
+      const defaultSelections: string[] = [];
+      optionalCategories.forEach(category => {
+        if (category.defaultChoice) {
+          // Compare against filename (minus .ips) since name gets transformed with spaces/caps
+          const defaultPatch = category.patches.find(
+            p => p.filename.replace(/\.ips$/i, '') === category.defaultChoice
+          );
+          if (defaultPatch) {
+            defaultSelections.push(defaultPatch.id);
+          }
+        }
+      });
+      if (defaultSelections.length > 0) {
+        setSelectedOptionalPatches(defaultSelections);
+      }
+    }
+  }, [optionalCategories]);
 
   // name of the core romhack patches' zip
   const corePatches = '/AHC.zip'
