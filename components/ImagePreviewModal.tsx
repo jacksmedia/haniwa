@@ -4,18 +4,13 @@ import React, { useEffect, useState } from 'react';
 interface ImagePreviewModalProps {
   isOpen: boolean;
   onClose: () => void;
-  src: string;
-  imageAlt: string;
   title?: string;
-  description?: string;
-  manifestPath?: string; // optional path to manifest file
+  manifestPath: string; // path to manifest file (required since all options have manifests)
 }
 
 const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
   isOpen,
   onClose,
-  src,
-  imageAlt,
   title,
   manifestPath
 }) => {
@@ -80,8 +75,6 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
 
   if (!isOpen) return null;
 
-  const hasManifest = manifestPath && !manifestError;
-  console.log(manifestPath);
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
@@ -101,55 +94,32 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
         {title && (
           <div className="modal-header">
             <h2>{title}</h2>
-            {/* {description && <p>{description}</p>} maybe worthwhile, but manifest is better*/}
           </div>
         )}
 
-        {/* Main content area: 2-column layout when manifest exists! */}
-        <div className={`modal-content ${hasManifest ? 'with-manifest' : ''}`}>
-          {/* Image container */}
-          <div className="modal-image-container">
-            <img
-              src={src}
-              alt={imageAlt}
-              className="modal-image"
-              onError={(e) => {
-                console.error('Failed to load preview image:', src);
-                e.currentTarget.src = '/placeholder-image.png'; // fallback image
-              }}
-            />
-          </div>
-
-          {/* .txt manifest container */}
-          {hasManifest && (
-            <div className="manifest-container">
-              <div className="manifest-header">
-                <h3>Patch Function</h3>
-              </div>
-              <div className="manifest-content">
-                {loadingManifest ? (
-                  <div className="manifest-loading">
-                    <div className="spinner"></div>
-                    <p>Loading credits...</p>
-                  </div>
-                ) : manifestContent ? (
-                  <div className="manifest-text">
-                    {manifestContent.split('\\n').map((line, index) => (
-                      <div key={index}>{line || '\\u00A0'}</div>
-                      // forcing line breaks; <pre> element wasn't visible so can't be used
-                    ))}
-                  </div>
-                ) : (
-                  <p className="manifest-error">Unable to load credits information</p>
-                )}
-              </div>
+        {/* Manifest content only */}
+        <div className="modal-content">
+          <div className="manifest-container">
+            <div className="manifest-header">
+              <h3>Patch Details</h3>
             </div>
-          )}
-        </div>
-
-        {/* Footer with filename */}
-        <div className="modal-footer">
-          <small>{imageAlt}</small>
+            <div className="manifest-content">
+              {loadingManifest ? (
+                <div className="manifest-loading">
+                  <div className="spinner"></div>
+                  <p>Loading details...</p>
+                </div>
+              ) : manifestContent ? (
+                <div className="manifest-text">
+                  {manifestContent.split('\\n').map((line, index) => (
+                    <div key={index}>{line || '\\u00A0'}</div>
+                  ))}
+                </div>
+              ) : manifestError ? (
+                <p className="manifest-error">Unable to load patch details</p>
+              ) : null}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -226,55 +196,18 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
         /* main content container */
         .modal-content {
           flex: 1;
-          display: grid;
-          grid-template-columns: 1fr;
+          display: flex;
+          flex-direction: column;
           min-height: 0;
           overflow: scroll;
         }
 
-        .modal-content.with-manifest {
-          grid-template-columns: 60% 40%; /* Two columns with manifest */
-          gap: 0;
-        }
-
-        .modal-image-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 1px;
-          overflow: visible;
-          grid-column: 1;
-        }
-
-        .modal-content.with-manifest .modal-image-container {
-          grid-column: 1;
-          padding-right: 10px;
-        }
-
-        .modal-image {
-          width: 100%;
-          max-width: 55vw;
-          height: 100%;
-          max-height: 55vh;
-          object-fit: contain;
-          border-radius: 8px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          background: black;
-          image-rendering: pixelated;
-        }
-
-        .modal-content.with-manifest .modal-image {
-          max-width: 100%;
-          max-height: 70vh;
-        }
-
-        /* optional manifest */
+        /* manifest container - now the only content */
         .manifest-container {
           display: flex;
           flex-direction: column;
-          grid-column: 2;
+          flex: 1;
           background: rgba(0, 0, 0, 0.3);
-          border-left: 1px solid #666;
           overflow: overlay;
         }
 
@@ -349,52 +282,25 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
           margin: 20px 0;
         }
 
-        .modal-footer {
-          padding: 10px 20px;
-          background: #555555;
-          border-top: 1px solid #666666;
-          text-align: center;
-          color: #666;
-        }
-
         /* mobile responsive display */
         @media (max-width: 768px) {
           .modal-overlay {
             padding: 10px;
           }
-          
+
           .modal-container {
             max-width: 98vw;
             max-height: 98vh;
           }
 
-          .modal-content.with-manifest {
-            flex-direction: column;
-          }
-
-          .modal-content.with-manifest .modal-image-container {
-            flex: 0 0 50%;
-            padding-right: 20px;
-          }
-
-          .manifest-container {
-            flex: 0 0 50%;
-            border-left: none;
-            border-top: 1px solid #666;
-          }
-          
           .modal-header {
             padding: 15px 15px 8px 15px;
           }
-          
+
           .modal-header h2 {
             font-size: 1.25rem;
           }
-          
-          .modal-image-container {
-            padding: 15px;
-          }
-          
+
           .modal-close-btn {
             top: 10px;
             right: 10px;
@@ -404,7 +310,6 @@ const ImagePreviewModal: React.FC<ImagePreviewModalProps> = ({
 
           .manifest-text {
             font-size: 0.75rem;
-            justify-content: left;
           }
         }
 

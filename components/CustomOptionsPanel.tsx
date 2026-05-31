@@ -27,7 +27,6 @@ interface CustomOptionsPanelProps {
   categories: PatchCategory[];
   selectedPatches: string[]; // Array of patch IDs
   onSelectionChange: (selectedPatchIds: string[]) => void;
-  onPreviewImage?: (imageSrc: string, title: string, description: string) => void;
   isDisabled?: boolean;
 }
 
@@ -35,48 +34,33 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
   categories,
   selectedPatches,
   onSelectionChange,
-  onPreviewImage,
   isDisabled = false
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalProps, setModalProps] = useState<{
-    src: string;
     title: string;
-    description: string;
     manifestPath: string;
   } | null>(null);
 
   const handlePreviewClick = (patch: OptionalPatch) => {
-  // if (patch.previewImage) {
-  // Creates manifest path for fonts category
-  const manifestPath = ( patch.category === 'difficulty' ||
-                         patch.category === 'options'   ||
-                         patch.category === 'human_F' ||
-                         patch.category === 'human_M' ||
-                         patch.category === 'mutant_F' ||
-                         patch.category === 'mutant_M')
-    ? `/manifests/${patch.name}.txt`  // Pattern for patch.id matches manifest title
-    : ``;
-  console.log(`Generated ${manifestPath} for manifest text file name.`)
-  if (patch.previewImage) {
+    // Build manifest path based on category
+    const manifestPath = (patch.category === 'difficulty' ||
+                          patch.category === 'options'   ||
+                          patch.category === 'default-characters' ||
+                          patch.category === 'human_F' ||
+                          patch.category === 'human_M' ||
+                          patch.category === 'mutant_F' ||
+                          patch.category === 'mutant_M')
+      ? `/manifests/${patch.name}.txt`
+      : '';
+
     setModalProps({
-      src: patch.previewImage,
       title: patch.name,
-      description: patch.description,
       manifestPath: manifestPath
     });
     setModalOpen(true);
-  } else {
-    setModalProps({
-      src: '/placeholder-image.png',
-      title: patch.name,
-      description: patch.description,
-      manifestPath: manifestPath
-    });
-    setModalOpen(true);
-  }
-};
+  };
 
   const handlePatchToggle = (patchId: string, categoryId: string) => {
     const category = categories.find(cat => cat.id === categoryId);
@@ -232,13 +216,19 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
                           <div className="font-medium text-white">
                             {patch.name}
                           </div>
-                          {/* <div className="text-sm text-gray-300 mt-1">
-                            {patch.description}
-
-                            // this may end up not getting used
-                          
-                          </div> */}
                         </div>
+                        {/* Inline preview image if one exists */}
+                        {patch.previewImage && (
+                          <img
+                            src={patch.previewImage}
+                            alt={patch.name}
+                            className="option-preview-image"
+                            onError={(e) => {
+                              // Hide image if it fails to load
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        )}
                         {/* UX Select button, with duplicate actions from the hidden <input> above*/}
                         <button
                           onClick={(e) => {
@@ -250,20 +240,18 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
                         >
                           Select
                         </button>
-                        {/* Preview button, loaded from public/previews */}
-                        {patch.previewImage && (
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handlePreviewClick(patch);
-                            }}
-                            disabled={isDisabled}
-                            className="mx-auto px-2 py-2 text-white nicer-btn"
-                          >
-                            Info
-                          </button>
-                        )}
+                        {/* Info button - always shown since all options have manifests */}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePreviewClick(patch);
+                          }}
+                          disabled={isDisabled}
+                          className="mx-auto px-2 py-2 text-white nicer-btn"
+                        >
+                          Info
+                        </button>
                       </label>
                     );
                   })}
@@ -289,18 +277,13 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
             </div>
           )}
 
-          {/* Image Preview Modal
-          moot until preview button is enabled again, line 165
-          */}
+          {/* Info Modal - shows manifest text for patch details */}
             {modalOpen && modalProps && (
               <ImagePreviewModal
                 isOpen={modalOpen}
                 onClose={() => setModalOpen(false)}
-                src={modalProps.src}
-                imageAlt={modalProps.title}
                 title={modalProps.title}
                 manifestPath={modalProps.manifestPath}
-                // description={modalProps.description} unused currently
               />
             )}
 

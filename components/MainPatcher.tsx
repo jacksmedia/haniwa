@@ -55,7 +55,18 @@ export default function MainPatcher() {
         hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
       },
-            {
+      {
+        id: 'default-characters',
+        title: 'Default Characters',
+        description: '',
+        allowMultiple: false,
+        zipFile: 'Default-Heroes.zip',
+        defaultChoice: 'The 8 heroes in AHC',
+        hasManifest: false,
+        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+        // filePattern: /Style/i // can be used filter a multi-catergory archive
+      },
+      {
         id: 'human_F',
         title: 'Human F',
         description: 'Change this hero\'s sprites',
@@ -66,7 +77,7 @@ export default function MainPatcher() {
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
         // filePattern: /Style/i // can be used filter a multi-catergory archive
       },
-            {
+      {
         id: 'human_M',
         title: 'Human M',
         description: 'Change this hero\'s sprites',
