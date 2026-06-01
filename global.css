@@ -123,6 +123,35 @@ main div {
   border-radius: 10px;
 }
 
+
+/* Attribution & Header */
+.top-line {
+  background: #fff;
+  height: 2px;
+  margin-bottom: 12px;
+}
+.shade {
+  background: rgba(0,0,0,0.5)
+}
+
+@keyframes special-text {
+  0% {color: #80a;}
+  50% {color: #f00;}
+  100% {color: #80a;}
+}
+.special {
+  color: #80a;
+  animation-name: special-text;
+  animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+
 /* ImagePreviewModal */
 /* all styling is local! */
 

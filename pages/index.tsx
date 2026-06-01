@@ -8,7 +8,7 @@ const HomePage: NextPage = () => {
   return (
     <Layout>
       <div className='plus-patcher-bg container'>
-        <div className='flex-col justify-content-center col-10'>
+        <div className='flex-col justify-content-center col-10 shade'>
 
             <h1 className='app-title text-center'>SaGa2 "A Haniwa's Contingency"</h1>
             <div className='flex-row justify-content-center col-4'>
