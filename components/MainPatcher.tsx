@@ -61,7 +61,7 @@ export default function MainPatcher() {
         description: '',
         allowMultiple: false,
         zipFile: 'Default-Heroes.zip',
-        defaultChoice: 'The 8 heroes in AHC',
+        defaultChoice: 'The_8_heroes_in_AHC',
         hasManifest: false,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
         // filePattern: /Style/i // can be used filter a multi-catergory archive
@@ -142,6 +142,8 @@ export default function MainPatcher() {
   }, [optionalCategories]);
 
   // name of the core romhack patches' zip
+  // in this case the AHC.zip is a "dummy patch"
+  // it makes no changes, bc "Average Difficult" is used instead
   const corePatches = '/AHC.zip'
 
   useEffect(() => {

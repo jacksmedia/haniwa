@@ -47,7 +47,7 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
     // Build manifest path based on category
     const manifestPath = (patch.category === 'difficulty' ||
                           patch.category === 'options'   ||
-                          patch.category === 'default-characters' ||
+                          patch.category === 'default-heroes' ||
                           patch.category === 'human_F' ||
                           patch.category === 'human_M' ||
                           patch.category === 'mutant_F' ||
