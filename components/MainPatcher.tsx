@@ -41,7 +41,7 @@ export default function MainPatcher() {
         description: 'Average < Veteran < Insane < Lunatic',
         allowMultiple: false,
         zipFile: 'Difficulty.zip',
-        defaultChoice: 'Saga2_A_Haniwas_Contingency_v2.0_beta2_Average',
+        defaultChoice: 'Saga2_A_Haniwas_Contingency_v2.0_Average',
         hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
       },
@@ -105,6 +105,28 @@ export default function MainPatcher() {
         description: 'Change this hero\'s sprites',
         allowMultiple: false,
         zipFile: 'Mutant F.zip',
+        defaultChoice: '',
+        hasManifest: false,
+        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+        // filePattern: /Style/i // can be used filter a multi-catergory archive
+      },
+      {
+        id: 'cyborg',
+        title: 'Cyborg',
+        description: 'Change this hero\'s sprites',
+        allowMultiple: false,
+        zipFile: 'Cyborg.zip',
+        defaultChoice: '',
+        hasManifest: false,
+        manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
+        // filePattern: /Style/i // can be used filter a multi-catergory archive
+      },
+      {
+        id: 'robot',
+        title: 'Robot',
+        description: 'Change this hero\'s sprites',
+        allowMultiple: false,
+        zipFile: 'Robot.zip',
         defaultChoice: '',
         hasManifest: false,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`

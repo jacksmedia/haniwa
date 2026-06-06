@@ -1,3 +1,0 @@
-This changes the Mutant F sprite into the version from FFL1.
-
-This is only for appearance purposes and does not affect the functionality of the Human.

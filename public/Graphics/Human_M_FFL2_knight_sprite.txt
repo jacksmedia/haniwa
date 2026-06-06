@@ -1,3 +1,0 @@
-This optional patch merely changes the Male Human sprite into a remastered FFL1 Knight. This is only for appearance purposes and does not affect the functionality of the Human. 
-
-Apply it AFTER you have patched your FFL2 ROM with the hack!
