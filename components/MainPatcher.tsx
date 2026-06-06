@@ -61,7 +61,7 @@ export default function MainPatcher() {
         description: '',
         allowMultiple: false,
         zipFile: 'Default-Characters.zip',
-        defaultChoice: 'Default-Characters',
+        defaultChoice: 'default-characters',
         hasManifest: false,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
         // filePattern: /Style/i // can be used filter a multi-catergory archive
