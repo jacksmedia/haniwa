@@ -1,0 +1,3 @@
+Warning:  Replacing the Cyborg with the Terrorist/Gas Mask Commando from FFL3 will require you to start a new game, since it sets a different animation at the very start of the game. 
+If you apply this graphic over an existing savegame, the cyborg animation will not be correct. Likewise, if you start with the gasmask patch applied, you will not be able to revert
+back to the default cyborg since it will now have the gasmask animation set.

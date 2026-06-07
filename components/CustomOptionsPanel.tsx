@@ -51,7 +51,10 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
                           patch.category === 'human_F' ||
                           patch.category === 'human_M' ||
                           patch.category === 'mutant_F' ||
-                          patch.category === 'mutant_M')
+                          patch.category === 'mutant_M' ||
+                          patch.category === 'cyborg' ||
+                          patch.category === 'robot'                        
+                        )
       ? `/manifests/${patch.name}.txt`
       : '';
 

@@ -1,6 +1,0 @@
-In vanilla FFL2, Robots cannot ever increase their mana no matter what.  This is also the case in A Haniwa's Contingency, but with ONE exception: at
-the endgame, you can find a rare item that will increase their Agility, Strength, AND Mana. However, even with this rare item, Robots cannot be as
-good as Mutant or Human mages - but they can at least heal and take magic hits a bit better.
-
-This optional patch removes mana from Robots even WITH the new endgame item. This means it will be just like vanilla where there is no possible
-way to increase the mana with Robots.

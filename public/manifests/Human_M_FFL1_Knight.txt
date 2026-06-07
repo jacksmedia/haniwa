@@ -1,3 +1,0 @@
-This changes the Human M sprite into a remastered FFL1 Knight.
-
-This is only for appearance purposes and does not affect the functionality of the Human.
