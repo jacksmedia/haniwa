@@ -156,6 +156,39 @@ main div {
 /* all styling is local! */
 
 
+/* all cards on landing page */
+.option-preview-image {
+  min-width: 23vw;
+  max-width: 23vw;
+}
+/* Card widths are standardized via viewport-relative image sizing.
+   The image acts as a shared sizing constraint, preventing cards from
+   collapsing to the width of short titles while remaining responsive.
+
+   CSS by author, feature described by ChatGPT5. */
+
+/* per-element sizing, to make the larger image stay larger */
+img[alt="Default Characters"] {
+  width: 63vw;
+  min-width: 63vw;
+  max-width: 63vw;
+}
+
+
+/* Layout debugging advice from ChatGPT5 
+When a layout behaves impossibly, inspect these properties in order:
+
+display
+width / max-width
+flex
+flex-wrap
+overflow
+position
+
+About 80% of weird frontend bugs can be traced to one of those six.
+*/
+
+
 /* List formatting per page */
 .guides-list li a {
   font-size: 1.6em;

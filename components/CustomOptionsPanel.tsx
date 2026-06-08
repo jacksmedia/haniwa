@@ -195,7 +195,7 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
                       const showAsChosen = isSelected || (isDefaultPatch && !categoryHasSelection);
                       // exquisitiely conditional CSS madness
                       const classes = [
-                        'p-2', 'mb-3', 'd-flex', 'flex-column', 'option-box',
+                        'p-2', 'm-1', 'mb-4', 'd-flex', 'flex-column', 'option-box',
                         showAsChosen ? 'chosen-box' : 'unchosen-box',
                         isDefaultPatch ? 'default-option' : '',
                         isDisabled ? 'cursor-not-allowed opacity-50' : ''
