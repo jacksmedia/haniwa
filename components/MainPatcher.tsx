@@ -56,13 +56,13 @@ export default function MainPatcher() {
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
       },
       {
-        id: 'default-characters',
+        id: 'characters',
         title: 'Default Characters',
         description: '',
         allowMultiple: false,
-        zipFile: 'Default-Characters.zip',
-        defaultChoice: 'default-characters',
-        hasManifest: false,
+        zipFile: 'Characters.zip',
+        defaultChoice: 'Characters',
+        hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
         // filePattern: /Style/i // can be used filter a multi-catergory archive
       },
