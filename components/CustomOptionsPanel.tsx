@@ -48,7 +48,7 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
     // URL-encode the name to handle spaces (works locally but fails on Vercel without encoding)
     const manifestPath = (patch.category === 'difficulty' ||
                           patch.category === 'options'   ||
-                          patch.category === 'default-heroes' ||
+                          patch.category === 'characters' ||
                           patch.category === 'human_F' ||
                           patch.category === 'human_M' ||
                           patch.category === 'mutant_F' ||
