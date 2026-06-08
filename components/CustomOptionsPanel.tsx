@@ -45,6 +45,7 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
 
   const handlePreviewClick = (patch: OptionalPatch) => {
     // Build manifest path based on category
+    // URL-encode the name to handle spaces (works locally but fails on Vercel without encoding)
     const manifestPath = (patch.category === 'difficulty' ||
                           patch.category === 'options'   ||
                           patch.category === 'default-heroes' ||
@@ -53,9 +54,9 @@ const CustomOptionsPanel: React.FC<CustomOptionsPanelProps> = ({
                           patch.category === 'mutant_F' ||
                           patch.category === 'mutant_M' ||
                           patch.category === 'cyborg' ||
-                          patch.category === 'robot'                        
+                          patch.category === 'robot'
                         )
-      ? `/manifests/${patch.name}.txt`
+      ? `/manifests/${encodeURIComponent(patch.name)}.txt`
       : '';
 
     setModalProps({

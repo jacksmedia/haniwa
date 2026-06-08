@@ -37,7 +37,13 @@ export const useOptionalPatches = (config: OptionalPatchesConfig) => {
             
             if (categoryConfig.zipFile) { // zip handling
               try {
-                const response = await fetch(`/${categoryConfig.zipFile}`);
+                // URL-encode the filename to handle spaces (works locally but fails on Vercel without encoding)
+                const encodedZipFile = encodeURIComponent(categoryConfig.zipFile);
+                const response = await fetch(`/${encodedZipFile}`);
+                if (!response.ok) {
+                  console.error(`Failed to fetch ${categoryConfig.zipFile}: ${response.status} ${response.statusText}`);
+                  continue;
+                }
                 const zipData = await response.arrayBuffer();
                 if (zipData.byteLength === 0) { // log for empty zip
                   console.warn(`Empty ZIP file: ${categoryConfig.zipFile}`);
@@ -113,7 +119,12 @@ export const useOptionalPatches = (config: OptionalPatchesConfig) => {
           // Load all patches from specified ZIP files (legacy approach)
           for (const zipFile of config.zipFiles) {
             try {
-              const response = await fetch(`/${zipFile}`);
+              const encodedZipFile = encodeURIComponent(zipFile);
+              const response = await fetch(`/${encodedZipFile}`);
+              if (!response.ok) {
+                console.error(`Failed to fetch ${zipFile}: ${response.status} ${response.statusText}`);
+                continue;
+              }
               const zipData = await response.arrayBuffer();
               const zip = await JSZip.loadAsync(zipData);
               const patches: OptionalPatch[] = [];

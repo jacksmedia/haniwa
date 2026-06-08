@@ -174,6 +174,9 @@ export default function MainPatcher() {
       try {
         setLoadingPatches(true);
         const response = await fetch(corePatches);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch core patches: ${response.status} ${response.statusText}`);
+        }
         const zipData = await response.arrayBuffer();
         const zip = await JSZip.loadAsync(zipData);
         const patchEntries: Patch[] = [];
