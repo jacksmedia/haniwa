@@ -9,7 +9,7 @@ const Guides: NextPage = () => {
         <h1 className="">SaGa2 "A Haniwa's Contingency" Guides</h1>
           <TitleScreen />
         <p>All docs by the author of this romhack, Lightning Hunter</p>
-        <ul className='guides-list'>
+        {/* <ul className='guides-list'>
 			<li>
 				<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/Guide/AHC-Guide-2.pdf">
 					Armor & Items
@@ -45,7 +45,7 @@ const Guides: NextPage = () => {
 					Full Game Walkthrough
 				</a>
 			</li>
-        </ul>
+        </ul> */}
 		<h2>
 			<a target="_blank" href="https://github.com/jacksmedia/haniwa/blob/main/public/SaGa2-AHC-Guides.zip" className='special-link'>
 				Download all Guides (.docx) in a .zip file
