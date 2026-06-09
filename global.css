@@ -168,11 +168,11 @@ main div {
    CSS by author, feature described by ChatGPT5. */
 
 /* per-element sizing, to make the larger image stay larger */
-img[alt="Characters"] {
+/* img[alt="Characters"] {
   width: 63vw;
   min-width: 63vw;
   max-width: 63vw;
-}
+} */
 
 
 /* Layout debugging advice from ChatGPT5 

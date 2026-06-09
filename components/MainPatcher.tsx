@@ -54,7 +54,7 @@ export default function MainPatcher() {
         description: '',
         allowMultiple: false,
         zipFile: 'Characters.zip',
-        defaultChoice: 'Characters',
+        defaultChoice: 'New_Characters',
         hasManifest: true,
         manifestPath: (patchName: string) => `/manifests/${patchName}.txt`
         // filePattern: /Style/i // can be used filter a multi-catergory archive

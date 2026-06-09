@@ -1,0 +1,4 @@
+As of version 2.0 of the hack, all characters and NPCs have been replaced an/or enhanced.  This patch reverts them all to the default sprites.
+The exception is new monsters and new NPCs. Examples of sprites not reverted by this patch are the Cyborg and new NPCs for children, elderly,
+and monsters that have completely different classes (like the scorpion).  Class specific sprites that also didn't exist before
+like wizards, commandos, knights, and the samurai boss are also not touched by this patch.
