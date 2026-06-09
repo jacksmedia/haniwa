@@ -50,7 +50,7 @@ export default function MainPatcher() {
       },
       {
         id: 'characters',
-        title: 'Default Characters',
+        title: 'Characters',
         description: '',
         allowMultiple: false,
         zipFile: 'Characters.zip',
