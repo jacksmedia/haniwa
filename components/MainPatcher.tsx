@@ -1,6 +1,5 @@
 // MainPatcher.tsx developed with Claude Sonnet 4
 import React, { useEffect, useMemo, useState } from 'react';
-import JSZip from 'jszip';
 import SpinnerOverlay from '@/components/SpinnerOverlay';
 import DownloadRomButton from '@/components/DownloadRomButton';
 import RomVerifier from '@/components/RomVerifier';
@@ -10,26 +9,20 @@ import computeCRC32 from '@/lib/crc32';
 import { useOptionalPatches } from '@/hooks/useOptionalPatches';
 import PlusTitle from "@/components/TitleScreen";
 
-type Patch = {
-  name: string;
-  data: Uint8Array;
-  originalName: string; // filename without path
-};
-
 // Interface for ROM state mgmt
 type RomState = {
   originalFile: File;
   processedRom: Uint8Array; // headerless, expanded ROM ready for patching
-  matchingPatch: Patch;
-  originalCRC32: string; // previously discrete state
+  originalCRC32: string;
 };
 
+// Valid ROM CRC32 checksums for verification
+const VALID_ROM_CRC32S = ['58314182'];
+
 export default function MainPatcher() {
-  const [patches, setPatches] = useState<Patch[]>([]);
   const [romState, setRomState] = useState<RomState | null>(null); // Stores ROM + patch info
   const [isPatching, setIsPatching] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [loadingPatches, setLoadingPatches] = useState(true);
   const [selectedOptionalPatches, setSelectedOptionalPatches] = useState<string[]>([]);
 
   // Optional patches by category
@@ -163,69 +156,6 @@ export default function MainPatcher() {
     }
   }, [optionalCategories]);
 
-  // name of the core romhack patches' zip
-  // in this case the AHC.zip is a "dummy patch"
-  // it makes no changes, bc "Average Difficult" is used instead
-  const corePatches = '/AHC.zip'
-
-  useEffect(() => {
-    // Loads main patches
-    const loadPatches = async () => {
-      try {
-        setLoadingPatches(true);
-        const response = await fetch(corePatches);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch core patches: ${response.status} ${response.statusText}`);
-        }
-        const zipData = await response.arrayBuffer();
-        const zip = await JSZip.loadAsync(zipData);
-        const patchEntries: Patch[] = [];
-
-        await Promise.all(
-          Object.keys(zip.files).map(async (filename) => {
-            const file = zip.files[filename];
-            
-            if (file.dir || !file.name.toLowerCase().endsWith('.ips')) {
-              return; // filtered for patch files only
-            }
-            
-            try {
-              const originalName = file.name.split('/').pop() || file.name; // rm path
-              const data = new Uint8Array(await file.async('arraybuffer')); // convert to raw Uint8Array
-              
-              const header = new TextDecoder().decode(data.slice(0, 5)); // verifies ips header ("PATCH")
-              if (header !== 'PATCH') {
-                console.warn(`Skipping invalid IPS file: ${file.name} (invalid header: ${header})`);
-                return;
-              }
-              
-              const nameWithoutExtension = originalName.replace(/\.ips$/i, '').toUpperCase(); // case mgmt for CRC32 matching
-              
-              patchEntries.push({ 
-                name: nameWithoutExtension, 
-                data,
-                originalName
-              });
-              
-              console.log(`Loaded patch: ${nameWithoutExtension} from ${originalName}`);
-            } catch (err) {
-              console.error(`Error processing patch file ${file.name}:`, err);
-            }
-          })
-        );
-
-        console.log(`Successfully loaded ${patchEntries.length} main project patches`);
-        setPatches(patchEntries);
-      } catch (err) {
-        console.error('Failed to load main patches:', err);
-        setError('Failed to load main patch files.');
-      } finally {
-        setLoadingPatches(false);
-      }
-    };
-
-    loadPatches(); // kicks off the main rendering logic   
-  }, []);
 
 
 
@@ -254,12 +184,11 @@ export default function MainPatcher() {
       const romCRC32 = computeCRC32(headerlessRom);
       console.log(`ROM CRC32: ${romCRC32}`); // debug log
 
-      // Finds matching main patch by CRC32
-      const matchingPatch = patches.find(patch => patch.name === romCRC32);
-      if (!matchingPatch) {
-        throw new Error(`No matching patch found for ROM with CRC32: ${romCRC32}`);
+      // Validates ROM CRC32 against known valid checksums
+      if (!VALID_ROM_CRC32S.includes(romCRC32)) {
+        throw new Error(`Invalid ROM. Expected CRC32: ${VALID_ROM_CRC32S.join(' or ')}, got: ${romCRC32}`);
       }
-      console.log(`Found matching patch: ${matchingPatch.originalName}`);
+      console.log('ROM CRC32 verified successfully');
 
       // Expands uploaded rom to correct size for romhack
       // value in MB below: 6MB for FF6ASC ; 2MB for FF4UP ; 0.5 for AHC
@@ -276,7 +205,6 @@ export default function MainPatcher() {
       setRomState({
         originalFile: romFile,
         processedRom: expandedRom,
-        matchingPatch: matchingPatch,
         originalCRC32: romCRC32
       });
 
@@ -297,22 +225,19 @@ export default function MainPatcher() {
     console.log('Generating patched ROM...');
     // Starts with the processed ROM...
     let patchedRom = new Uint8Array(romState.processedRom.buffer.slice(0)); // snaps the Type into conformity! What madness!
-    // Applies main patch
-    patchedRom = applyIPS(patchedRom, romState.matchingPatch.data as Uint8Array);
-    console.log(`Applied main patch: ${romState.matchingPatch.originalName}`);
-    // Applies optional patches (in order of selection)
-    const selectedOptionals = getSelectedPatches(selectedOptionalPatches);
-    for (const optionalPatch of selectedOptionals) {
-      console.log(`Applying optional patch: ${optionalPatch.name}`);
-      patchedRom = applyIPS(patchedRom, optionalPatch.data);
+    // Applies selected patches (in order of selection)
+    const selectedPatches = getSelectedPatches(selectedOptionalPatches);
+    for (const patch of selectedPatches) {
+      console.log(`Applying patch: ${patch.name}`);
+      patchedRom = applyIPS(patchedRom, patch.data);
     }
-    console.log(`Final patched ROM generated with ${selectedOptionals.length} optional patches`);
+    console.log(`Final patched ROM generated with ${selectedPatches.length} patches`);
     return patchedRom;
   };
 
   // Control checks
   const hasValidRom = romState !== null;
-  const isReady = !loadingPatches && patches.length > 0;
+  const isReady = !loadingOptional && optionalCategories.length > 0;
   const hasOptionalPatches = optionalCategories.length > 0;
   
   return (
@@ -325,15 +250,15 @@ export default function MainPatcher() {
           Choose alternate graphics, difficulty, & different options if you wish!
         </p>
         <DownloadRomButton
-          onGenerateRom={generatePatchedRom} // Now uses generator function
-          filename={`SaGa2 AHC${selectedOptionalPatches.length > 0 ? ' Custom' : ''}.gb`}
+          onGenerateRom={generatePatchedRom}
+          filename={`SaGa2 AHC.gb`}
           disabled={!hasValidRom || isPatching}
         />
       </div>
 
       <div className='d-flex justify-content-center align-items-center h-100'>
-        {loadingPatches ? (
-          <p>Loading main patches...</p>
+        {loadingOptional ? (
+          <p>Loading patches...</p>
         ) : isReady ? (
           <RomVerifier onMatch={handleMatch} />
         ) : (
@@ -366,9 +291,6 @@ export default function MainPatcher() {
           <p className="font-mono text-sm">
             Uploaded CRC32: {romState!.originalCRC32}
           </p>
-          {/* <p className="text-sm text-gray-300">
-            Matching patch: {romState!.matchingPatch.originalName}
-          </p> */}
           {selectedOptionalPatches.length > 0 && (
             <div className="mt-2">
               <p className="text-sm text-gray-300">Selected options:</p>
