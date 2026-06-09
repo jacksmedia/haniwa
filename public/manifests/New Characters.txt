@@ -1,3 +1,1 @@
-The default appearance of the 8 characters.
-\n
-The Human, Mutant, and Robot sprites were modified from existing FFL/Saga images. The Cyborg is based on a sprite from FFL3.
+The brand new characters that ship with the base hack.
