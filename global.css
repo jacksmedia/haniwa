@@ -158,8 +158,9 @@ main div {
 
 /* all cards on landing page */
 .option-preview-image {
-  min-width: 23vw;
-  max-width: 23vw;
+  min-width: 210px;
+  width: 210px;
+  max-width: 210px;
 }
 /* Card widths are standardized via viewport-relative image sizing.
    The image acts as a shared sizing constraint, preventing cards from
@@ -230,7 +231,63 @@ td:nth-child(even) {
   background-color: rgba(128,128,128,0.4);
 }
 
-/* Workaround for the overhyped garbage that is Bootstrap columns */
+
+
+
+/* index.tsx title styling */
+.app-title {
+  line-height: 1;
+  color: rgb(233, 233, 111);
+  font-size: 50px;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 1), 4px 4px 0px #bb8;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+/* for title icons */
+.image-sizing {
+  max-width: 30px;
+  max-height: 30px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+
+
+
+
+/* form elements styling */
+.hidden-input {
+  visibility: hidden;
+}
+
+.kard {
+  background-color: #112;
+}
+
+
+/* per page styling */
+.plus-patcher-bg {
+  background: radial-gradient(#3866e7, rgb(43, 20, 195), #000);
+}
+.discord-bg {
+  background: linear-gradient(rgb(43, 20, 195),#000, #000);
+}
+.guides-bg {
+  background: linear-gradient(#3866e7, rgb(43, 20, 195), #000);
+}
+
+
+
+
+
+
+
+
+
+/* Workaround for columns */
 .two-column-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -295,47 +352,7 @@ td:nth-child(even) {
     align-items: center;
     justify-content: center;
   }
-}
 
 
-/* index.tsx title styling */
-.app-title {
-  line-height: 1;
-  color: rgb(233, 233, 111);
-  font-size: 50px;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 1), 4px 4px 0px #bb8;
-  font-weight: bold;
-  margin-bottom: 1rem;
 }
 
-.image-sizing {
-  max-width: 30px;
-  max-height: 30px;
-  margin-left: 12px;
-  margin-right: 12px;
-}
-
-.flip-horizontal {
-  transform: scaleX(-1);
-}
-
-/* older styling */
-.hidden-input {
-  visibility: hidden;
-}
-
-.kard {
-  background-color: #112;
-}
-
-
-/* per page styling */
-.plus-patcher-bg {
-  background: radial-gradient(#3866e7, rgb(43, 20, 195), #000);
-}
-.discord-bg {
-  background: linear-gradient(rgb(43, 20, 195),#000, #000);
-}
-.guides-bg {
-  background: linear-gradient(#3866e7, rgb(43, 20, 195), #000);
-}
